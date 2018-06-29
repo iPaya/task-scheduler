@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use App\Commands\CronListCommand;
+use App\Commands\StartCommand;
+use Symfony\Component\Console\Application;
+
+require dirname(__DIR__) . '/src/bootstrap.php';
+
+$app = new Application('Task Scheduler Server', 'v0.1.0');
+$app->addCommands([
+    new StartCommand(),
+    new CronListCommand(),
+]);
+$app->run();
